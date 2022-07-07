@@ -11,7 +11,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(jsonServer.defaults());
 
-const SECRET_KEY = "123456789";
+const SECRET_KEY = "526092837462";
 
 const expiresIn = "1d";
 
@@ -98,10 +98,10 @@ server.post("/auth/login", (req, res) => {
     return;
   }
   const access_token = createToken({ email, password });
-  var expireAt = new Date();
-  expireAt.setDate(expireAt.getDate() + 1);
+  //var expireAt = new Date();
+  //expireAt.setDate(expireAt.getDate() + 1);
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token, expireAt });
+  res.status(200).json({ access_token });
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
