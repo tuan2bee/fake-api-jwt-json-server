@@ -13,7 +13,7 @@ server.use(jsonServer.defaults());
 
 const SECRET_KEY = "123456789";
 
-const expiresIn = "1h";
+const expiresIn = "1d";
 
 // Create a token from a payload
 function createToken(payload) {
@@ -98,8 +98,10 @@ server.post("/auth/login", (req, res) => {
     return;
   }
   const access_token = createToken({ email, password });
+  var expireAt = new Date();
+  expireAt.setDate(expireAt.getDate() + 1);
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token });
+  res.status(200).json({ access_token, expireAt });
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
