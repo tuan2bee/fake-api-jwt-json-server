@@ -82,9 +82,8 @@ server.post("/auth/register", (req, res) => {
 
   // Create token for new user
   const access_token = createToken({ email, password });
-  const expireAt = 60 * 60 * 24000;
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token, expireAt });
+  res.status(200).json({ access_token });
 });
 
 // Login to one of the users from ./users.json
@@ -101,13 +100,8 @@ server.post("/auth/login", (req, res) => {
   const access_token = createToken({ email, password });
   //var expireAt = new Date();
   //expireAt.setDate(expireAt.getDate() + 1);
-
-  const one_day = 60 * 60 * 24000;
-  var date = Date.now();
-  var expireAt = date.getMilliseconds() + one_day;
-
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token, expireAt });
+  res.status(200).json({ access_token });
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
