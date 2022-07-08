@@ -82,8 +82,9 @@ server.post("/auth/register", (req, res) => {
 
   // Create token for new user
   const access_token = createToken({ email, password });
+  const expireAt = 60 * 60 * 24000;
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token });
+  res.status(200).json({ access_token, expireAt });
 });
 
 // Login to one of the users from ./users.json
