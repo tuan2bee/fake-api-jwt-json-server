@@ -101,8 +101,9 @@ server.post("/auth/login", (req, res) => {
   const access_token = createToken({ email, password });
   //var expireAt = new Date();
   //expireAt.setDate(expireAt.getDate() + 1);
+  const expireAt = 60 * 60 * 24000;
   console.log("Access Token:" + access_token);
-  res.status(200).json({ access_token });
+  res.status(200).json({ access_token, expireAt });
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
