@@ -13,7 +13,7 @@ server.use(jsonServer.defaults());
 
 const SECRET_KEY = "526092837462";
 
-const expiresIn = "1d";
+const expiresIn = "10d";
 
 // Create a token from a payload
 function createToken(payload) {
