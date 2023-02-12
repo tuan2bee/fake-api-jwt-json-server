@@ -2,7 +2,7 @@
   "products": [
     {
         "name": "Load data từ API đến Combobox Tailwind",
-        "category": "nextjs",
+        "category": "coding",
         "content": "<p>const [people, setPeople] = useState([]);</p><p>&nbsp;useEffect(() =&gt; {<br>&nbsp; &nbsp;async function handleGetProfileClick() {<br>&nbsp; &nbsp; &nbsp;try {<br>&nbsp; &nbsp; &nbsp; &nbsp;const data = await authApi.getProfile();<br>&nbsp; &nbsp; &nbsp; &nbsp;console.log(data); // Thấy data<br>&nbsp; &nbsp; &nbsp; &nbsp;setPeople(data);<br>&nbsp; &nbsp; &nbsp; &nbsp;console.log(people); // Không thấy data<br>&nbsp; &nbsp; &nbsp;} catch (error) {<br>&nbsp; &nbsp; &nbsp; &nbsp;console.log(\"failed to login\", error);<br>&nbsp; &nbsp; &nbsp;}<br>&nbsp; &nbsp;}</p><p>&nbsp; &nbsp;handleGetProfileClick();<br>&nbsp;}, []);</p>",
         "link": "https://tailwindcss.com/docs/width",
         "note": "Nhớ phải dùng useEffect()",
